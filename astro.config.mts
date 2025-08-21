@@ -3,9 +3,10 @@ import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 // @ts-check
 import { defineConfig } from 'astro/config'
+import { SITE_URL } from './src/consts.ts'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://mertsismanoglu.com',
+  site: SITE_URL,
   integrations: [mdx(), sitemap(), tailwind()],
 })
