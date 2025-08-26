@@ -3,7 +3,6 @@ title: 'Crossposting on Social Media with crosspost'
 description: 'Learn how to use crosspost to share your content across multiple social media platforms effortlessly with just a few commands.'
 pubDate: 'August 26 2025'
 heroImage: '/blog-crossposting-on-social-media-with-crosspost.png'
-image: '/blog-crossposting-on-social-media-with-crosspost.png'
 ---
 
 Do you have multiple social media accounts and want to share your content
