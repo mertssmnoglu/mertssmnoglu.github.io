@@ -963,8 +963,8 @@ packages:
     resolution: {integrity: sha512-KxektNH63SrbfUyDiwXqRb1rLwKt33AmMv+5Nhsw1kqZ13SJBRTgZHtGbE+hH3a1mVW1cz+4pqSWVPAtLVXTzQ==}
     engines: {node: '>=18'}
 
-  devalue@5.2.0:
-    resolution: {integrity: sha512-pn/4yAWRz7WrDNpr29JUv2s+8Q4zyf/9I5SuFlhf8wTHfc3HFakOwU2A9da1fokbVym/6IZq5alo18pIByxxQg==}
+  devalue@5.3.2:
+    resolution: {integrity: sha512-UDsjUbpQn9kvm68slnrs+mfxwFkIflOhkanmyabZ8zOYk8SMEIbJ3TK+88g70hSIeytu4y18f0z/hYHMTrXIWw==}
 
   devlop@1.1.0:
     resolution: {integrity: sha512-RWmIqhcFf1lRYBvNmr7qTNuyCt/7/ns2jbpp1+PalgE/rDQcBT0fioSMUpJ93irlUhC5hrg4cYqe6U+0ImW0rA==}
@@ -2118,8 +2118,8 @@ packages:
   vfile@6.0.3:
     resolution: {integrity: sha512-KzIbH/9tXat2u30jf+smMwFCsno4wHVdNmzFyL+T/L3UGqqk6JKfVqOFOZEpZSHADH1k40ab6NUIXZq422ov3Q==}
 
-  vite@6.3.5:
-    resolution: {integrity: sha512-cZn6NDFE7wdTpINgs++ZJ4N49W2vRp8LCKrn3Ob1kYNtOo21vfDoaV5GzBfLU4MovSAB8uNRm4jgzVQZ+mBzPQ==}
+  vite@6.3.6:
+    resolution: {integrity: sha512-0msEVHJEScQbhkbVTb/4iHZdJ6SXp/AvxL2sjwYQFfBqleHtnCqv1J3sa9zbWz/6kW1m9Tfzn92vW+kZ1WV6QA==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
     peerDependencies:
@@ -3070,7 +3070,7 @@ snapshots:
       cssesc: 3.0.0
       debug: 4.4.1
       deterministic-object-hash: 2.0.2
-      devalue: 5.2.0
+      devalue: 5.3.2
       diff: 5.2.0
       dlv: 1.1.3
       dset: 3.1.4
@@ -3106,8 +3106,8 @@ snapshots:
       unist-util-visit: 5.0.0
       unstorage: 1.17.0
       vfile: 6.0.3
-      vite: 6.3.5(@types/node@24.3.0)(jiti@1.21.6)(yaml@2.6.0)
-      vitefu: 1.1.1(vite@6.3.5(@types/node@24.3.0)(jiti@1.21.6)(yaml@2.6.0))
+      vite: 6.3.6(@types/node@24.3.0)(jiti@1.21.6)(yaml@2.6.0)
+      vitefu: 1.1.1(vite@6.3.6(@types/node@24.3.0)(jiti@1.21.6)(yaml@2.6.0))
       xxhash-wasm: 1.1.0
       yargs-parser: 21.1.1
       yocto-spinner: 0.2.3
@@ -3332,7 +3332,7 @@ snapshots:
     dependencies:
       base-64: 1.0.0
 
-  devalue@5.2.0: {}
+  devalue@5.3.2: {}
 
   devlop@1.1.0:
     dependencies:
@@ -4929,7 +4929,7 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.3
 
-  vite@6.3.5(@types/node@24.3.0)(jiti@1.21.6)(yaml@2.6.0):
+  vite@6.3.6(@types/node@24.3.0)(jiti@1.21.6)(yaml@2.6.0):
     dependencies:
       esbuild: 0.25.9
       fdir: 6.5.0(picomatch@4.0.3)
@@ -4943,9 +4943,9 @@ snapshots:
       jiti: 1.21.6
       yaml: 2.6.0
 
-  vitefu@1.1.1(vite@6.3.5(@types/node@24.3.0)(jiti@1.21.6)(yaml@2.6.0)):
+  vitefu@1.1.1(vite@6.3.6(@types/node@24.3.0)(jiti@1.21.6)(yaml@2.6.0)):
     optionalDependencies:
-      vite: 6.3.5(@types/node@24.3.0)(jiti@1.21.6)(yaml@2.6.0)
+      vite: 6.3.6(@types/node@24.3.0)(jiti@1.21.6)(yaml@2.6.0)
 
   volar-service-css@0.0.62(@volar/language-service@2.4.10):
     dependencies:
