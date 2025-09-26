@@ -4,10 +4,13 @@ import BaseHead from '../components/BaseHead.astro'
 import Footer from '../components/Footer.astro'
 import FormattedDate from '../components/FormattedDate.astro'
 import Header from '../components/Header.astro'
+import ShareButtons from '../components/ShareButtons.astro'
+import { SITE_URL } from '../consts'
 
 type Props = CollectionEntry<'blog'>['data']
 
 const { title, description, pubDate, updatedDate, heroImage, smallHeroImage } = Astro.props
+const canonicalUrl = Astro.url ? new URL(Astro.url.pathname, SITE_URL).toString() : SITE_URL
 ---
 
 <html lang="en">
@@ -83,6 +86,7 @@ const { title, description, pubDate, updatedDate, heroImage, smallHeroImage } = 
 						<hr />
 					</div>
 					<slot />
+					<ShareButtons title={title} url={canonicalUrl} />
 				</div>
 			</article>
 		</main>

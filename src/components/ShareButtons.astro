@@ -1,0 +1,169 @@
+---
+import { SITE_URL } from '../consts'
+
+interface Props {
+  title: string
+  url?: string
+}
+
+const { title, url } = Astro.props as Props
+
+const canonicalUrl = (() => {
+  if (url) return url
+  if (Astro.url) {
+    const base = new URL(SITE_URL)
+    return new URL(Astro.url.pathname, base).toString()
+  }
+  return SITE_URL
+})()
+
+const encodedUrl = encodeURIComponent(canonicalUrl)
+const encodedTitle = encodeURIComponent(title)
+const textWithUrl = `${title} ${canonicalUrl}`.trim()
+const encodedTextWithUrl = encodeURIComponent(textWithUrl)
+
+const shareTargets = [
+  {
+    id: 'x',
+    label: 'X',
+    srLabel: 'Share on X (opens in a new tab)',
+    href: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
+  },
+  {
+    id: 'bluesky',
+    label: 'Bluesky',
+    srLabel: 'Share on Bluesky (opens in a new tab)',
+    href: `https://bsky.app/intent/compose?text=${encodedTextWithUrl}`,
+  },
+  {
+    id: 'mastodon',
+    label: 'Mastodon Social',
+    srLabel: 'Share on Mastodon Social (opens in a new tab)',
+    href: `https://mastodon.social/share?text=${encodedTextWithUrl}`,
+  },
+  {
+    id: 'linkedin',
+    label: 'LinkedIn',
+    srLabel: 'Share on LinkedIn (opens in a new tab)',
+    href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+  },
+  {
+    id: 'whatsapp',
+    label: 'WhatsApp',
+    srLabel: 'Share on WhatsApp (opens in a new tab)',
+    href: `https://wa.me/?text=${encodedTextWithUrl}`,
+  },
+]
+---
+
+<div class="share-buttons" data-share>
+  <span class="share-label">Share this article</span>
+  <div class="share-links">
+    {shareTargets.map((target) => (
+      <a
+        class="share-link"
+        data-network={target.id}
+        href={target.href}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span aria-hidden="true">{target.label}</span>
+        <span class="sr-only">{target.srLabel}</span>
+      </a>
+    ))}
+  </div>
+</div>
+
+<style>
+  .share-buttons {
+    margin: 2em 0 3em;
+    padding: 1.25em 1.5em;
+    border-radius: 12px;
+    border: 1px solid rgb(var(--gray-light));
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(var(--gray), 0.2);
+  }
+
+  .share-label {
+    display: block;
+    margin-bottom: 0.85em;
+    font-weight: 700;
+    font-size: 1.05em;
+    color: rgb(var(--black));
+  }
+
+  .share-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75em;
+  }
+
+  .share-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.45em 1.2em;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    background: var(--share-bg, rgb(var(--gray-light)));
+    color: var(--share-color, rgb(var(--gray-dark)));
+    text-decoration: none;
+    font-size: 0.95em;
+    font-weight: 600;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  }
+
+  .share-link:hover,
+  .share-link:focus-visible {
+    background: var(--share-hover-bg, var(--accent));
+    border-color: var(--share-hover-bg, var(--accent));
+    color: var(--share-hover-color, #fff);
+    transform: translateY(-1px);
+  }
+
+  .share-link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .share-link[data-network='x'] {
+    --share-bg: #0f1419;
+    --share-hover-bg: #000000;
+    --share-color: #ffffff;
+  }
+
+  .share-link[data-network='bluesky'] {
+    --share-bg: #1185fe;
+    --share-hover-bg: #0a68d9;
+    --share-color: #ffffff;
+  }
+
+  .share-link[data-network='mastodon'] {
+    --share-bg: #6364ff;
+    --share-hover-bg: #5859eb;
+    --share-color: #ffffff;
+  }
+
+  .share-link[data-network='linkedin'] {
+    --share-bg: #0a66c2;
+    --share-hover-bg: #004182;
+    --share-color: #ffffff;
+  }
+
+  .share-link[data-network='whatsapp'] {
+    --share-bg: #25d366;
+    --share-hover-bg: #1da851;
+    --share-color: #ffffff;
+  }
+
+  @media (max-width: 720px) {
+    .share-buttons {
+      padding: 1em;
+    }
+
+    .share-link {
+      flex: 1 1 calc(50% - 0.75em);
+      justify-content: center;
+    }
+  }
+</style>
