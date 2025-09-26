@@ -35,20 +35,60 @@ import SocialLinks from './SocialLinks.astro'
 	h2 a,
 	h2 a.active {
 		text-decoration: none;
+		white-space: nowrap;
 	}
 	nav {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		flex-wrap: nowrap;
+		gap: 0.5em;
+	}
+	.internal-links {
+		display: flex;
+		align-items: center;
+		flex-wrap: nowrap;
+		gap: 0.5em;
 	}
 	nav a {
 		padding: 1em 0.5em;
 		color: var(--black);
 		border-bottom: 4px solid transparent;
 		text-decoration: none;
+		white-space: nowrap;
 	}
 	nav a.active {
 		text-decoration: none;
 		border-bottom-color: var(--accent);
+	}
+	@media (max-width: 480px) {
+		nav {
+			flex-direction: row;
+			align-items: center;
+			justify-content: flex-start;
+			gap: 0.35em;
+		}
+		.internal-links {
+			flex: 1 1 auto;
+			min-width: 0;
+			justify-content: flex-start;
+			gap: 0.35em;
+		}
+		.internal-links a {
+			padding: 0.75em 0.35em;
+			font-size: 0.95em;
+		}
+		.internal-links a.active {
+			border-left: 0;
+		}
+	}
+	@media (max-width: 380px) {
+		h2 {
+			font-size: 0.9em;
+		}
+		nav a {
+			padding: 0.65em 0.25em;
+			font-size: 0.9em;
+		}
 	}
 </style>
