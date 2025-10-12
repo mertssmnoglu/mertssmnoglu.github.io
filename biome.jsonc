@@ -1,8 +1,6 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-  "organizeImports": {
-    "enabled": true
-  },
+  "assist": { "actions": { "source": { "organizeImports": "on" } } },
   "linter": {
     "enabled": true,
     "rules": {
@@ -14,12 +12,16 @@
         "recommended": true
       },
       "suspicious": {
-        "noExplicitAny": "off"
+        "noExplicitAny": "off",
+        "noDuplicateProperties": "off"
       },
       "complexity": {
-        "noForEach": "off"
+        "noForEach": "off",
+        "noImportantStyles": "off"
       },
       "correctness": {
+        "noUnusedImports": "off",
+        "noUnusedVariables": "off",
         "useExhaustiveDependencies": "warn"
       }
     }
@@ -31,15 +33,16 @@
     "lineWidth": 100
   },
   "files": {
-    "ignore": [
-      "node_modules",
-      "public",
-      ".next",
-      ".contentlayer",
-      "lib/wasm",
-      ".vercel",
-      ".astro",
-      "dist"
+    "includes": [
+      "**",
+      "!**/node_modules",
+      "!**/public",
+      "!**/.next",
+      "!**/.contentlayer",
+      "!**/lib/wasm",
+      "!**/.vercel",
+      "!**/.astro",
+      "!**/dist"
     ]
   },
   "javascript": {
