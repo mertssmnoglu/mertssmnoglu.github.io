@@ -7,9 +7,19 @@ import Header from '../components/Header.astro'
 import ShareButtons from '../components/ShareButtons.astro'
 import { SITE_URL } from '../consts'
 
-type Props = CollectionEntry<'blog'>['data']
+type Props = CollectionEntry<'blog'>['data'] & {
+  showShareButtons?: boolean
+}
 
-const { title, description, pubDate, updatedDate, heroImage, smallHeroImage } = Astro.props
+const {
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  heroImage,
+  smallHeroImage,
+  showShareButtons = true,
+} = Astro.props
 const canonicalUrl = Astro.url ? new URL(Astro.url.pathname, SITE_URL).toString() : SITE_URL
 ---
 
@@ -86,7 +96,7 @@ const canonicalUrl = Astro.url ? new URL(Astro.url.pathname, SITE_URL).toString(
 						<hr />
 					</div>
 					<slot />
-					<ShareButtons title={title} url={canonicalUrl} />
+					{showShareButtons && <ShareButtons title={title} url={canonicalUrl} />}
 				</div>
 			</article>
 		</main>
