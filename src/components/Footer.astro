@@ -5,7 +5,12 @@ import SocialLinks from './SocialLinks.astro'
 ---
 
 <footer>
-	&copy; {today.getFullYear()} Mert Şişmanoğlu. All rights reserved.
+	<div>
+		&copy; {today.getFullYear()} Mert Şişmanoğlu. Licensed under <a href="https://opensource.org/licenses/MIT">MIT License</a>.
+	</div>
+	<div>
+		<a href="https://github.com/mertssmnoglu/mertssmnoglu.github.io">View source code on GitHub</a>
+	</div>
 	<SocialLinks />
 </footer>
 <style>
