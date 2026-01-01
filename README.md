@@ -70,15 +70,16 @@ npm install -g pnpm@latest-10
 
 ## Available Scripts
 
-| Command | Description |
-|---------|-------------|
-| `pnpm dev` | Start development server at `localhost:4321` |
-| `pnpm build` | Build the production site to `./dist/` |
-| `pnpm preview` | Preview your build locally before deploying |
-| `pnpm lint` | Run Biome linter to check code quality |
-| `pnpm lint-fix` | Run Biome linter and fix issues automatically |
-| `pnpm format` | Format code with Biome |
-| `pnpm format-check` | Check code formatting without making changes |
+| Command             | Description                                   |
+| ------------------- | --------------------------------------------- |
+| `pnpm dev`          | Start development server at `localhost:4321`  |
+| `pnpm start`        | Start the production server locally           |
+| `pnpm build`        | Build the production site to `./dist/`        |
+| `pnpm preview`      | Preview your build locally before deploying   |
+| `pnpm lint`         | Run Biome linter to check code quality        |
+| `pnpm lint-fix`     | Run Biome linter and fix issues automatically |
+| `pnpm format`       | Format code with Biome                        |
+| `pnpm format-check` | Check code formatting without making changes  |
 
 ## Writing Blog Posts
 
