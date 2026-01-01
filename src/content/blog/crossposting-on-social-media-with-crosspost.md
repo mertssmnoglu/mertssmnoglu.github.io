@@ -32,7 +32,8 @@ and it takes time.
 
 I'm also using LinkedIn but I have a separate strategy for it.
 It has more character limits and a different audience compared to the other platforms
-so I can share more detailed content there without worrying about the character count.
+so I can share more detailed content there
+without worrying about the character count.
 
 ## Why Use crosspost?
 
@@ -83,7 +84,8 @@ cd crosspost
 
 Save your credentials inside `.env`.
 
-Please get required credentials for each social media platform you want to post to.
+Please get required credentials
+for each social media platform you want to post to.
 Instructions can be found in the [crosspost strategy documentation][crosspost-strategy-docs].
 
 ```env
@@ -141,7 +143,8 @@ CROSSPOST_DOTENV=.env crosspost -m -b -t --file my_blog_post.txt
 ## Conclusion
 
 We explored the process of crossposting on social media using the crosspost tool.
-This tool simplifies sharing content across multiple platforms, saving time and effort.
+This tool simplifies sharing content across multiple platforms,
+saving time and effort.
 All you need to do is configure your environment and use the CLI commands provided.
 
 Thanks for reading!
