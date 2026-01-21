@@ -1,0 +1,4 @@
+audit:
+	pnpm format
+	pnpm lint
+	pnpm build
