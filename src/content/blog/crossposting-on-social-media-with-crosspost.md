@@ -88,7 +88,7 @@ Please get required credentials
 for each social media platform you want to post to.
 Instructions can be found in the [crosspost strategy documentation][crosspost-strategy-docs].
 
-```env
+```ini
 TWITTER_ACCESS_TOKEN_KEY=
 TWITTER_ACCESS_TOKEN_SECRET=
 TWITTER_API_CONSUMER_KEY=
