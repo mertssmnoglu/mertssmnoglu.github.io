@@ -20,7 +20,7 @@
     "@astrojs/rss": "^4.0.15",
     "@astrojs/sitemap": "^3.7.0",
     "@astrojs/tailwind": "^5.1.2",
-    "astro": "^5.16.12",
+    "astro": "^5.17.1",
     "tailwindcss": "^3.4.19",
     "typescript": "^5.9.3"
   },
