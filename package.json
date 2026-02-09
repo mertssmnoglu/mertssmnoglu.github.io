@@ -12,7 +12,8 @@
     "lint": "biome check .",
     "lint-fix": "biome check . --write",
     "format-check": "biome format",
-    "format": "biome format --write"
+    "format": "biome format --write",
+    "prepare": "husky"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.6",
@@ -25,6 +26,7 @@
     "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.3.14"
+    "@biomejs/biome": "2.3.14",
+    "husky": "^9.1.7"
   }
 }
