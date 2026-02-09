@@ -1,3 +1,16 @@
 <!-- Cloudflare Web Analytics -->
-<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "8ed90600e46d4171bf236a0af24e3ee8"}'></script>
+<script>
+	// Check for user opt-out and do-not-track
+	const hasOptedOut = localStorage.getItem('cf-analytics-opted-out') === 'true';
+	const hasDoNotTrack = navigator.doNotTrack === '1';
+
+	// Only load if user hasn't opted out and respects do-not-track
+	if (!hasOptedOut && !hasDoNotTrack) {
+		const script = document.createElement('script');
+		script.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+		script.defer = true;
+		script.dataset.cfBeacon = JSON.stringify({ token: '8ed90600e46d4171bf236a0af24e3ee8' });
+		document.head.appendChild(script);
+	}
+</script>
 <!-- End Cloudflare Web Analytics -->

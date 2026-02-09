@@ -1,6 +1,7 @@
 ---
 const today = new Date()
 
+import AnalyticsInformationModal from './AnalyticsInformationModal.astro'
 import SocialLinks from './SocialLinks.astro'
 ---
 
@@ -11,13 +12,105 @@ import SocialLinks from './SocialLinks.astro'
 	<div>
 		<a href="https://github.com/mertssmnoglu/mertssmnoglu.github.io">View source code on GitHub</a>
 	</div>
+	<div class="analytics-section">
+		<button id="analytics-toggle" class="analytics-toggle">
+			<span id="analytics-status"></span>
+		</button>
+		<button id="analytics-info" class="analytics-info" title="Analytics Information">
+			<img src="/img/icons/information-button-svgrepo-com.svg" alt="Information" width="16" height="16">
+		</button>
+	</div>
 	<SocialLinks />
 </footer>
+
+<AnalyticsInformationModal />
+
+<script>
+	function getAnalyticsStatus() {
+		const hasOptedOut = localStorage.getItem('cf-analytics-opted-out') === 'true';
+		const hasDoNotTrack = navigator.doNotTrack === '1';
+		
+		if (hasOptedOut) return 'Analytics: OFF (opted out)';
+		if (hasDoNotTrack) return 'Analytics: OFF (do-not-track)';
+		return 'Analytics: ON';
+	}
+
+	function updateStatus() {
+		const statusEl = document.getElementById('analytics-status');
+		if (statusEl) statusEl.textContent = getAnalyticsStatus();
+	}
+
+	function toggleAnalytics() {
+		const current = localStorage.getItem('cf-analytics-opted-out') === 'true';
+		localStorage.setItem('cf-analytics-opted-out', String(!current));
+		location.reload();
+	}
+
+	document.addEventListener('DOMContentLoaded', () => {
+		updateStatus();
+		
+		document.getElementById('analytics-toggle')?.addEventListener('click', toggleAnalytics);
+		
+		const modal = document.getElementById('analytics-modal');
+		const infoBtn = document.getElementById('analytics-info');
+		const closeBtn = document.querySelector('.close');
+		
+		infoBtn?.addEventListener('click', () => {
+			if (modal) modal.style.display = 'block';
+		});
+		
+		closeBtn?.addEventListener('click', () => {
+			if (modal) modal.style.display = 'none';
+		});
+		
+		window.addEventListener('click', (e) => {
+			if (e.target === modal && modal) modal.style.display = 'none';
+		});
+	});
+
+	updateStatus();
+</script>
+
 <style>
 	footer {
 		padding: 2em 1em 6em 1em;
 		background: linear-gradient(var(--gray-gradient)) no-repeat;
 		color: rgb(var(--gray));
 		text-align: center;
+	}
+
+	.analytics-section {
+		margin: 0.5em 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5em;
+	}
+
+	.analytics-toggle {
+		background: none;
+		border: none;
+		color: var(--accent);
+		cursor: pointer;
+		font-family: inherit;
+		font-size: inherit;
+		padding: 0;
+	}
+
+	.analytics-toggle:hover {
+		opacity: 0.8;
+	}
+
+	.analytics-info {
+		background: none;
+		border: none;
+		cursor: pointer;
+		font-size: 1.2em;
+		padding: 0;
+		opacity: 0.7;
+	}
+
+	.analytics-info:hover {
+		opacity: 1;
 	}
 </style>
