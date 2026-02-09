@@ -22,7 +22,7 @@ featuring blog posts written in Markdown and MDX.
 
 Before you begin, ensure you have the following installed:
 
-- **Node.js**: Version 22 (LTS) or higher
+- **Node.js**: Version 24 (LTS) or higher
 - **pnpm**: Package manager (recommended over npm/yarn)
 
 You can check your Node.js version:
@@ -31,11 +31,11 @@ You can check your Node.js version:
 node --version
 ```
 
-If you need to install Node.js 22, you can use [nvm](https://github.com/nvm-sh/nvm):
+If you need to install Node.js 24, you can use [nvm](https://github.com/nvm-sh/nvm):
 
 ```bash
-nvm install 22
-nvm use 22
+nvm install 24
+nvm use 24
 ```
 
 To install pnpm:
