@@ -17,6 +17,7 @@ featuring blog posts written in Markdown and MDX.
 - **Package Manager**: pnpm
 - **Code Quality**: [Biome](https://biomejs.dev)
 - **Deployment**: GitHub Pages
+- **Analytics**: Cloudflare Web Analytics (users can opt-out)
 
 ## Prerequisites
 
