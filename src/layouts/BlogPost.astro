@@ -9,6 +9,7 @@ import { SITE_URL } from '../consts'
 
 type Props = CollectionEntry<'blog'>['data'] & {
   showShareButtons?: boolean
+  readingTime?: string
 }
 
 const {
@@ -19,6 +20,7 @@ const {
   heroImage,
   smallHeroImage,
   showShareButtons = true,
+  readingTime,
 } = Astro.props
 const canonicalUrl = Astro.url ? new URL(Astro.url.pathname, SITE_URL).toString() : SITE_URL
 ---
@@ -84,6 +86,7 @@ const canonicalUrl = Astro.url ? new URL(Astro.url.pathname, SITE_URL).toString(
 					<div class="title">
 						<div class="date">
 							<FormattedDate date={pubDate} />
+							{readingTime && <span> • {readingTime}</span>}
 							{
 								updatedDate && (
 									<div class="last-updated-on">
