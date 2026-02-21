@@ -13,7 +13,8 @@
     "lint-fix": "biome check . --write",
     "format-check": "biome format",
     "format": "biome format --write",
-    "prepare": "husky"
+    "prepare": "husky",
+    "blog:new": "node scripts/new-blog.js"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.6",
