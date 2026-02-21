@@ -81,12 +81,38 @@ npm install -g pnpm@latest-10
 | `pnpm lint-fix`     | Run Biome linter and fix issues automatically |
 | `pnpm format`       | Format code with Biome                        |
 | `pnpm format-check` | Check code formatting without making changes  |
+| `pnpm prepare`      | Set up Husky git hooks                        |
+| `pnpm blog:new`     | Create a new blog post interactively          |
 
 ## Writing Blog Posts
 
 Blog posts are stored in `src/content/blog/` and written in Markdown or MDX format.
 
 ### Creating a New Post
+
+Kickstart a new blog post with the `pnpm blog:new` command:
+
+```shell
+pnpm blog:new \
+   --title "My New Post" \
+   --description "A brief description of my new post"
+```
+
+or
+
+```bash
+pnpm blog:new
+```
+
+The command will:
+
+- Prompt for title and description (if not provided via CLI)
+- Automatically assign today's date as publication date
+- Generate a slug from the title
+- Create a new `.md` file in `src/content/blog/` with pre-defined frontmatter
+- and table of contents
+
+Alternatively, you can manually create a blog post:
 
 1. Create a new `.md` or `.mdx` file in `src/content/blog/`
 2. Add frontmatter at the top of the file:
@@ -113,9 +139,9 @@ Your content goes here...
 ## Contributing
 
 1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Commit your changes: `git commit -m 'Add some amazing feature'`
-4. Push to the branch: `git push origin feature/amazing-feature`
+2. Create a feature branch: `git switch -c feature/my-feature`
+3. Commit your changes: `git commit -m 'Add some feature'`
+4. Push to the branch: `git push origin feature/my-feature`
 5. Open a Pull Request
 
 ## License
