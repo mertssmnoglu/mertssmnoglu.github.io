@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 /*
   The CSS in this style tag is based off of Bear Blog's default CSS.
   https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
@@ -13,10 +15,23 @@
   --gray: 96, 115, 159;
   --gray-light: 229, 233, 240;
   --gray-dark: 34, 41, 57;
-  --gray-gradient: rgba(var(--gray-light), 50%), #fff;
+  --bg-end: #ffffff;
+  --header-bg: #ffffff;
+  --gray-gradient: rgba(var(--gray-light), 50%), var(--bg-end);
   --box-shadow:
     0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
     0 16px 32px rgba(var(--gray), 33%);
+}
+
+.dark {
+  --accent: #7b96ff;
+  --accent-dark: #a5b4fc;
+  --black: 240, 240, 250;
+  --gray: 120, 135, 165;
+  --gray-light: 45, 52, 70;
+  --gray-dark: 185, 200, 220;
+  --bg-end: #0d1117;
+  --header-bg: #161b22;
 }
 @font-face {
   font-family: "Atkinson";
@@ -37,7 +52,9 @@ body {
   margin: 0;
   padding: 0;
   text-align: left;
-  background: linear-gradient(var(--gray-gradient)) no-repeat;
+  background-color: var(--bg-end);
+  background-image: linear-gradient(var(--gray-gradient));
+  background-repeat: no-repeat;
   background-size: 100% 600px;
   word-wrap: break-word;
   overflow-wrap: break-word;

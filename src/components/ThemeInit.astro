@@ -1,0 +1,18 @@
+<!-- Runs inline (no bundling) as the first thing in <head> to prevent flash -->
+<script is:inline>
+  (function () {
+    var stored = localStorage.getItem('theme');
+    var prefersDark;
+    if (stored) {
+      prefersDark = stored === 'dark';
+    } else {
+      // Respect OS preference; if no preference, default to dark
+      prefersDark = !window.matchMedia('(prefers-color-scheme: light)').matches;
+    }
+    if (prefersDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  })();
+</script>
