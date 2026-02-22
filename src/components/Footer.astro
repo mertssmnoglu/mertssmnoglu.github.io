@@ -16,7 +16,7 @@ import SocialLinks from './SocialLinks.astro'
 		<button id="analytics-toggle" class="analytics-toggle">
 			<span id="analytics-status"></span>
 		</button>
-		<button id="analytics-info" class="analytics-info" title="Analytics Information">
+		<button id="analytics-info" class="analytics-info" title="Analytics Information" data-modal-open="analytics-modal">
 			<img src="/img/icons/information-button-svgrepo-com.svg" alt="Information" width="16" height="16">
 		</button>
 	</div>
@@ -50,22 +50,6 @@ import SocialLinks from './SocialLinks.astro'
 		updateStatus();
 		
 		document.getElementById('analytics-toggle')?.addEventListener('click', toggleAnalytics);
-		
-		const modal = document.getElementById('analytics-modal');
-		const infoBtn = document.getElementById('analytics-info');
-		const closeBtn = document.querySelector('.close');
-		
-		infoBtn?.addEventListener('click', () => {
-			if (modal) modal.style.display = 'block';
-		});
-		
-		closeBtn?.addEventListener('click', () => {
-			if (modal) modal.style.display = 'none';
-		});
-		
-		window.addEventListener('click', (e) => {
-			if (e.target === modal && modal) modal.style.display = 'none';
-		});
 	});
 
 	updateStatus();

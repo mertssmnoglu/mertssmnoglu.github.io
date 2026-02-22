@@ -15,6 +15,45 @@ const { id, title } = Astro.props
 	</div>
 </div>
 
+<script>
+	function initModals() {
+		// Close button inside each modal
+		document.querySelectorAll('.modal .close').forEach((closeBtn) => {
+			closeBtn.addEventListener('click', () => {
+				const modal = closeBtn.closest('.modal') as HTMLElement;
+				if (modal) modal.style.display = 'none';
+			});
+		});
+
+		// Backdrop click closes the modal
+		document.querySelectorAll('.modal').forEach((modal) => {
+			modal.addEventListener('click', (e) => {
+				if (e.target === modal) (modal as HTMLElement).style.display = 'none';
+			});
+		});
+
+		// [data-modal-open="modal-id"] triggers open
+		document.querySelectorAll('[data-modal-open]').forEach((trigger) => {
+			trigger.addEventListener('click', () => {
+				const id = (trigger as HTMLElement).dataset.modalOpen;
+				const modal = document.getElementById(id!) as HTMLElement;
+				if (modal) modal.style.display = 'block';
+			});
+		});
+	}
+
+	// ESC closes any open modal
+	window.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape') {
+			document.querySelectorAll('.modal').forEach((modal) => {
+				(modal as HTMLElement).style.display = 'none';
+			});
+		}
+	});
+
+	document.addEventListener('DOMContentLoaded', initModals);
+</script>
+
 <style>
 	.modal {
 		position: fixed;
