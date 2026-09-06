@@ -1,0 +1,97 @@
+---
+import { Image } from 'astro:assets'
+import BaseHead from '../components/BaseHead.astro'
+import Footer from '../components/Footer.astro'
+import Header from '../components/Header.astro'
+import ShareButtons from '../components/ShareButtons.astro'
+import ThemeInit from '../components/ThemeInit.astro'
+import { SITE_URL } from '../consts'
+
+type Props = {
+  title: string
+  description: string
+  heroImage?: string
+  smallHeroImage?: boolean
+  showShareButtons?: boolean
+}
+
+const { title, description, heroImage, smallHeroImage, showShareButtons = true } = Astro.props
+
+const canonicalUrl = Astro.url ? new URL(Astro.url.pathname, SITE_URL).toString() : SITE_URL
+---
+
+<html lang="en">
+	<head>
+		<ThemeInit />
+		<meta name="fediverse:creator" content="@mertssmnoglu@mastodon.social">
+		<BaseHead title={title} description={description} image={heroImage} />
+		<style>
+			main {
+				width: calc(100% - 2em);
+				max-width: 100%;
+				margin: 0 auto;	
+			}
+
+			.small-hero-image{
+				max-width: 400px;
+			}
+			.hero-image {
+				width: 100%;
+				margin: 0 auto;
+			}
+			.hero-image img {
+				display: block;
+				margin: 0 auto;
+				border-radius: 12px;
+				box-shadow: var(--box-shadow);
+			}
+			.prose {
+				width: 720px;
+				max-width: calc(100% - 2em);
+				margin: auto;
+				padding: 1em;
+				color: rgb(var(--gray-dark));
+			}
+			.title {
+				margin-bottom: 1em;
+				padding: 1em 0;
+				text-align: center;
+				line-height: 1;
+			}
+			.title h1 {
+				margin: 0 0 0.5em 0;
+			}
+			.title hr {
+				width: 4rem;
+				margin: 1rem auto 0;
+			}
+			@media (min-width: 768px) {
+				.prose {
+					width: 960px;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<Header />
+		<main>
+			<article>
+				{heroImage && (
+					<div class={smallHeroImage ? "small-hero-image hero-image" : "hero-image"}>
+						<Image width={1020} height={510} src={heroImage} alt="" />
+					</div>
+				)}
+				<div class="prose">
+					<div class="title">
+						<h1>{title}</h1>
+						<hr />
+					</div>
+					<slot />
+					{showShareButtons && <ShareButtons title={title} url={canonicalUrl} />}
+				</div>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>

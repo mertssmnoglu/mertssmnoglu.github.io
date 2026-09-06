@@ -1,0 +1,101 @@
+---
+import Layout from '../layouts/Page.astro'
+---
+
+<Layout
+	title="Work"
+	description="My work."
+	showShareButtons={false}
+>
+	<p>
+		Here is a summary of my work, including free software contributions, localizations, and other projects I've been involved in.
+	</p>
+
+    <h2>Projects</h2>
+
+	<!-- <h2>Open Source Contributions</h2>
+	<div class="cards-grid">
+		<a href="https://github.com/bluewave-labs/capture" class="card-link" target="_blank" rel="noopener noreferrer">
+			<div class="card">
+				<h3>Capture</h3>
+				<p>Hardware monitoring agent for Checkmate that collects and exposes metrics via a RESTful API.</p>
+				<div class="card-footer">View on GitHub &rarr;</div>
+			</div>
+		</a>
+		<a href="https://github.com/example/mock-project" class="card-link" target="_blank" rel="noopener noreferrer">
+			<div class="card">
+				<h3>Mock Project 1</h3>
+				<p>A backend utility to streamline internal deployments and configuration management using Rust.</p>
+				<div class="card-footer">View on GitHub &rarr;</div>
+			</div>
+		</a>
+	</div>
+
+	<h2>Localizations</h2>
+	<div class="cards-grid">
+		<a href="https://example.com/translation1" class="card-link" target="_blank" rel="noopener noreferrer">
+			<div class="card">
+				<h3>Mock Application TR</h3>
+				<p>Turkish localization for the popular open-source application, covering thousands of strings.</p>
+				<div class="card-footer">View details &rarr;</div>
+			</div>
+		</a>
+		<a href="https://example.com/translation2" class="card-link" target="_blank" rel="noopener noreferrer">
+			<div class="card">
+				<h3>Fediverse Platform TR</h3>
+				<p>Ongoing translation efforts to make decentralized social media more accessible to Turkish speakers.</p>
+				<div class="card-footer">View details &rarr;</div>
+			</div>
+		</a>
+	</div> -->
+</Layout>
+
+<style>
+	h2 {
+		margin-top: 2rem;
+		margin-bottom: 1rem;
+	}
+	.cards-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+		margin-bottom: 2rem;
+	}
+	.card-link {
+		text-decoration: none;
+		color: inherit;
+		display: block;
+	}
+	.card {
+		border: 1px solid rgb(var(--gray-light));
+		border-radius: 8px;
+		padding: 1.5rem;
+		height: 100%;
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+		display: flex;
+		flex-direction: column;
+		background-color: var(--bg-card, transparent);
+	}
+	.card-link:hover .card {
+		transform: translateY(-4px);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+		border-color: rgb(var(--accent));
+	}
+	.card h3 {
+		margin: 0 0 0.5rem 0;
+		font-size: 1.25rem;
+		color: rgb(var(--black));
+	}
+	.card p {
+		margin: 0;
+		color: rgb(var(--gray-dark));
+		flex-grow: 1;
+		line-height: 1.5;
+	}
+	.card-footer {
+		margin-top: 1rem;
+		font-size: 0.9em;
+		font-weight: 600;
+		color: rgb(var(--accent));
+	}
+</style>

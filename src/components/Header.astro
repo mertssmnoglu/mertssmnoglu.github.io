@@ -1,14 +1,13 @@
 ---
-import { SITE_TITLE } from '../consts'
 import HeaderLink from './HeaderLink.astro'
 import SocialLinks from './SocialLinks.astro'
 ---
 
 <header>
 	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
 		<div class="internal-links">
 			<HeaderLink href="/">Home</HeaderLink>
+			<HeaderLink href="/work">Work</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
 			<HeaderLink href="/about">About</HeaderLink>
 		</div>
@@ -51,16 +50,6 @@ import SocialLinks from './SocialLinks.astro'
 		background: var(--header-bg);
 		box-shadow: 0 2px 8px rgba(var(--black), 5%);
 	}
-	h2 {
-		margin: 0;
-		font-size: 1em;
-	}
-
-	h2 a,
-	h2 a.active {
-		text-decoration: none;
-		white-space: nowrap;
-	}
 	nav {
 		display: flex;
 		align-items: center;
@@ -95,30 +84,25 @@ import SocialLinks from './SocialLinks.astro'
 		nav {
 			flex-direction: row;
 			align-items: center;
-			justify-content: flex-start;
-			gap: 0.35em;
+			justify-content: center;
+			gap: 0.5em;
 		}
 		.internal-links {
-			flex: 1 1 auto;
-			min-width: 0;
-			justify-content: flex-start;
-			gap: 0.35em;
+			justify-content: center;
+			gap: 0.5em;
 		}
 		.internal-links a {
-			padding: 0.75em 0.35em;
-			font-size: 0.95em;
+			padding: 1em 0.5em;
+			font-size: 1em;
 		}
 		.internal-links a.active {
 			border-left: 0;
 		}
 	}
 	@media (max-width: 380px) {
-		h2 {
-			font-size: 0.9em;
-		}
 		nav a {
-			padding: 0.65em 0.25em;
-			font-size: 0.9em;
+			padding: 0.85em 0.35em;
+			font-size: 0.95em;
 		}
 	}
 	#theme-toggle {
