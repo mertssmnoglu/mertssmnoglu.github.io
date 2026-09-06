@@ -18,8 +18,6 @@ const {
   image = '',
   licenseUrl = 'https://creativecommons.org/licenses/by-sa/4.0/',
 } = Astro.props
-
-import CloudflareAnalytics from '../components/CloudflareAnalytics.astro'
 ---
 
 <!-- Global Metadata -->
@@ -56,4 +54,3 @@ import CloudflareAnalytics from '../components/CloudflareAnalytics.astro'
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
-<CloudflareAnalytics/>
